@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 const EditFormUser = props => {
   const [user, setUser] = useState(props.currentUser);
@@ -6,6 +6,9 @@ const EditFormUser = props => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+  useEffect(()=>{
+      setUser(props.currentUser)
+  },[props])
   return (
     <form
       onSubmit={e => {
